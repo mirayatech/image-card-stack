@@ -37,3 +37,9 @@ I wanted to create something that felt tactile and fun, like handling real cards
 2. Install dependencies: `npm install`
 3. Run development server: `npm run dev`
 4. Open `http://localhost:5173` in your browser
+
+## 🎞️ Preview
+
+https://github.com/user-attachments/assets/1d35a074-284f-478f-a95b-541ad3ee242e
+
+
