@@ -1,69 +1,39 @@
-# React + TypeScript + Vite
+# 🃏 Dynamic Image Card Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive image stack component built with React and Motion. Features smooth 3D animations, drag interactions, and a reusable component architecture that can work with any type of stackable content.
 
-Currently, two official plugins are available:
+## ✨ Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `React 19`
+- `TypeScript`
+- `Motion 12` (Framer Motion successor)
+- `Tailwind CSS 4`
+- `Vite 7`
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Dynamic Card Stacking** - Cards naturally stack with configurable rotation and scale
+- **3D Drag Interactions** - Realistic card rotations that respond to drag movements
+- **Spring Physics** - Smooth animations with natural spring transitions
+- **Generic Architecture** - Built with TypeScript generics to work with any `StackableItem` type
+- **Configurable Effects** - Customize rotation angles, scaling factors, and 3D perspective
+- **Threshold Detection** - Cards automatically move to bottom of stack when dragged beyond limits
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📍 The Process
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+I wanted to create something that felt tactile and fun, like handling real cards. Started with a simple drag concept but realized it needed that extra dimension to feel authentic. The 3D rotations based on drag position make each interaction feel responsive and natural. The generic component design means you can stack anything.. images, content cards, whatever you need. The spring animations give it that satisfying snap-back feeling when you let go. Built the whole thing to be modular, so the core `CardStack` component can be reused while `ImageCardStack` shows how to implement it for specific use cases.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🎯 Component Architecture
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **`CardStack<T>`** - Generic draggable stack component accepting any `StackableItem`
+- **`DraggableContainer`** - Handles drag physics and 3D motion effects  
+- **`useCardRotation`** - Custom hook managing drag interactions and threshold detection
+- **`ImageCardStack`** - Concrete implementation for image galleries
+- **`StackableItem`** - TypeScript interface ensuring type safety across components
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚦 Running the Project
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run development server: `npm run dev`
+4. Open `http://localhost:5173` in your browser
