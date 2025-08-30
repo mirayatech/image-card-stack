@@ -53,6 +53,7 @@ export function CardStack<T extends StackableItem>({
           key={item.id}
           onSendToBack={() => sendToBack(item.id)}
           className={cardClassName}
+          isDraggable={index === items.length - 1}
         >
           <motion.div
             className="h-full w-full"
